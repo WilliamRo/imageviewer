@@ -4,14 +4,14 @@ classdef ImageViewer < handle
     %% Constants
     properties (Access = private, Constant)
         FigureName = 'Date Viewer';
-    end
+    end % constants
     %% Private Properties
     properties (Access = private, SetObservable) 
         Data
         Labels = []
         Interpreter = []
         Cursor
-    end
+    end % private properties
     %% Public Methods
     methods (Access = public)
         % Constructor
@@ -33,15 +33,15 @@ classdef ImageViewer < handle
         end % constructor
         %
         view(this)
-    end
+    end % public methods
     %% Private Methods
     methods (Access = private)
         cursorChanged(this, ~, ~)
-    end
+    end % private methods
     %% Public Static Methods
     methods (Access = public, Static)
         viewImage(varargin)
-    end
+    end % public static methods
     
 end
 
