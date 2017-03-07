@@ -12,7 +12,7 @@ screenSize = get(0, 'ScreenSize');
 [screenWidth, screenHeight] = deal(screenSize(3), screenSize(4));
 % get image size
 imgSize = size(this.Data);
-[imgWidth, imgHeight] = deal(imgSize(1), imgSize(2));
+[imgHeight, imgWidth] = deal(imgSize(1), imgSize(2));
 % open a new figure
 f = figure('Name', this.FigureName, 'NumberTitle', 'off', ...
     'ToolBar', 'none', 'MenuBar', 'none', 'Units', 'pixels');
