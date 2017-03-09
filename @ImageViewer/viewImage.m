@@ -2,7 +2,7 @@ function viewImage(varargin)
 %VIEWIMAGE ...
 %   ...
 
-viewer = ImageViewer(varargin);
+viewer = imv.ImageViewer(varargin{:});
 viewer.view
 
 end
