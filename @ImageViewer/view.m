@@ -2,6 +2,12 @@ function view(this)
 %VIEW ...
 %   ...
 
+%% Check this
+if isempty(this.Data)
+    fprintf('>> Nothing to be viewed.\n')
+    return
+end
+
 %% Set parameters
 % set default parameters
 pct = [0.4, 0.8];

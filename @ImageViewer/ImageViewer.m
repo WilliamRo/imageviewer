@@ -17,8 +17,7 @@ classdef ImageViewer < handle
         % Constructor
         function this = ImageViewer(data, labels, interpreter)
             % check input
-            narginchk(1, 3)
-            assert(~isempty(data), '!! Input data is illegal.')
+            if nargin < 1, data = []; end
             % set parameters
             this.Cursor = 1;
             this.Data = data;
@@ -32,6 +31,7 @@ classdef ImageViewer < handle
                 @this.cursorChanged);
         end % constructor
         %
+        addImage(this, image, label)
         view(this)
     end % public methods
     %% Private Methods
