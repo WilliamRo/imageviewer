@@ -3,45 +3,31 @@ classdef ImageViewer < handle
     %   ...
     %% Constants
     properties (Access = private, Constant)
-        FigureName = 'Date Viewer';
+        FigureName = 'Image Viewer';
     end % constants
     %% Private Properties
     properties (Access = private, SetObservable) 
-        Data
-        Labels = []
-        Interpreter = []
+        Images = []     % image cells
+        Maps = []       % color maps
+        Labels = []     % string cells
         Cursor
     end % private properties
     %% Public Methods
     methods (Access = public)
         % Constructor
-        function this = ImageViewer(data, labels, interpreter)
-            % check input
-            if nargin < 1, data = []; end
-            % set parameters
+        function this = ImageViewer()
             this.Cursor = 1;
-            this.Data = data;
-            if nargin > 2, 
-                assert(length(labels) == size(data, 3), ...
-                    '!! Input data and labels are not matched.')
-                this.Labels = labels; 
-                this.Interpreter = interpreter; 
-            end % if 
             addlistener(this, 'Cursor', 'PostSet', ...
                 @this.cursorChanged);
         end % constructor
         %
-        addImage(this, image, label)
+        addImage(this, image, label, map)
         view(this)
     end % public methods
     %% Private Methods
     methods (Access = private)
         cursorChanged(this, ~, ~)
     end % private methods
-    %% Public Static Methods
-    methods (Access = public, Static)
-        viewImage(varargin)
-    end % public static methods
     
 end
 

@@ -3,24 +3,19 @@ function cursorChanged(this, ~, ~)
 %   ...
 
 %% Check cursor bounds
-if this.Cursor == 0, this.Cursor = size(this.Data, 3);
-elseif this.Cursor > size(this.Data, 3)
+if this.Cursor == 0, this.Cursor = length(this.Images);
+elseif this.Cursor > length(this.Images)
     this.Cursor = 1;
 end
 
 %% Show image
-imshow(this.Data(:, :, this.Cursor), []); 
+imshow(this.Images{this.Cursor}, this.Maps{this.Cursor}); 
 f = gcf;
-fname = [];
-if ~isempty(this.Interpreter) && ~isempty(this.Labels)
-    fname = this.Interpreter(this.Labels(this.Cursor));
-elseif iscell(this.Labels)
-    fname = this.Labels{this.Cursor};
-end
+fname = this.Labels{this.Cursor};
 % change title
 if ~isempty(fname), fname = [' ', fname]; end
 f.Name = sprintf('[%d/%d]%s - %s', ...
-        this.Cursor, size(this.Data, 3), ...
+        this.Cursor, length(this.Images), ...
         fname, this.FigureName);
 
 end

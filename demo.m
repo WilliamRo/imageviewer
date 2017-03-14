@@ -3,18 +3,17 @@ function demo
 %
 
 % read sample image from disk
-img = imread('sample.tif');
+img = imread('+imv/sample.tif');
 
-% initilize image stack
-stack = repmat(zeros(size(img)), 1, 1, 3);
+% initialize an instance for ImageViewer
+viewer = imv.ImageViewer();
 
-% process image
-stack(:, :, 1) = medfilt2(img, [3, 3]);
-stack(:, :, 2) = medfilt2(img, [4, 4]);
-stack(:, :, 3) = medfilt2(img, [5, 5]);
+% process image and add results to viewer
+viewer.addImage(medfilt2(img, [3, 3]), 'medfilt[3, 3]')
+viewer.addImage(medfilt2(img, [4, 4]), 'medfilt[4, 4]')
+viewer.addImage(medfilt2(img, [5, 5]), 'medfilt[5, 5]')
 
-% show image
-viewer = ImageViewer(stack);
+% show images
 viewer.view
 
 end

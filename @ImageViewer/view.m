@@ -3,7 +3,7 @@ function view(this)
 %   ...
 
 %% Check this
-if isempty(this.Data)
+if isempty(this.Images)
     fprintf('>> Nothing to be viewed.\n')
     return
 end
@@ -17,8 +17,8 @@ pct = [0.4, 0.8];
 screenSize = get(0, 'ScreenSize');
 screenSize = screenSize(3:4);
 % get image size
-imgSize = size(this.Data);
-imgSize = imgSize(1:2);
+imgSize = size(this.Images{1});
+imgSize = imgSize(2:-1:1);
 % open a new figure
 f = figure('Name', this.FigureName, 'NumberTitle', 'off', ...
     'ToolBar', 'none', 'MenuBar', 'none', 'Units', 'pixels');
