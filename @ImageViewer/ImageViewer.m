@@ -22,8 +22,13 @@ classdef ImageViewer < handle
         end % constructor
         %
         addImage(this, image, label, map)
+        addLabel(this, label)
         view(this)
     end % public methods
+    %% Static Methods
+    methods (Static, Access = public)
+        quickView(varargin)
+    end
     %% Private Methods
     methods (Access = private)
         cursorChanged(this, ~, ~)
