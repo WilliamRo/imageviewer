@@ -56,9 +56,9 @@ function btnPressed(f, callbackdata)
             f.Position = f.Position - delta;
         case {'escape', 'return'}
             close(f)
-            fprintf('>> Figure closed.\n')
+            fprintf('!> Figure closed.\n')
         otherwise
-            fprintf('>> Unknown key pressed: [%s]\n', ...
+            fprintf('?> Unknown key pressed: [%s]\n', ...
                 callbackdata.Key)
     end
 end
